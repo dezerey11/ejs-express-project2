@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/head") %>
+
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("partials/header") %>
+    <main>
+      <!-- *********DISPLAY OUR POSTS********* -->
+      <h1 class="title">My Posts</h1>
+      <a href="/auth/logout"><button class="button">Logout</button></a>
+      <% for (post of posts) { %>
+      <h2 class="subtitle is-3"><%= post.text %></h2>
+      <% } %>
+
+      <!-- **********NEW GOALS FORM**************** -->
+      <form action="/posts" method="post">
+        <input type="text" placeholder="new post" name="text" />
+        <input type="submit" value="add post" />
+      </form>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/footer") %>
+  </body>
+</html>

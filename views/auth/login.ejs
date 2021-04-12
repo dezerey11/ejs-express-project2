@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("../partials/head") %>
+
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <p class="title">Welcome Back!</p>
+      </div>
+    </section>
+    <main>
+      <h1><strong>User Login</strong></h1>
+      <form action="/auth/login" method="post">
+        Username:
+        <input type="text" placeholder="username" name="username" />
+        <br />
+        Password:
+        <input type="password" placeholder="password" name="password" />
+        <br />
+        <input type="submit" value="Login" />
+      </form>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+  </body>
+</html>
