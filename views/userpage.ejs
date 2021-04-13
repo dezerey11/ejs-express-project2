@@ -8,17 +8,16 @@
     <%- include("partials/header") %>
     <main>
       <!-- *********DISPLAY OUR POSTS********* -->
-      <h1 class="title">My Posts</h1>
+
+      <h2 class="subtitle is-2">Posts:</h2>
+      <a href="/userpage/new"><button class="go-back">Create Post</button></a>
+      <br />
       <a href="/auth/logout"><button class="button">Logout</button></a>
       <% for (post of posts) { %>
-      <h2 class="subtitle is-3"><%= post.text %></h2>
+      <h2 class="subtitle is-5"><%= post.title %></h2>
+      <img src="<%= post.image %>" />
       <% } %>
-
-      <!-- **********NEW GOALS FORM**************** -->
-      <form action="/posts" method="post">
-        <input type="text" placeholder="new post" name="text" />
-        <input type="submit" value="add post" />
-      </form>
+      <br />
     </main>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>

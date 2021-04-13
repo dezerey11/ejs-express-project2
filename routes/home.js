@@ -43,7 +43,14 @@ router.use(addUserToRequest);
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
-router.get("/", indexCtrl.index);
+router.get("/", (req, res) => {
+  res.render("welcome");
+});
+
+router.get("/userpage", indexCtrl.index);
+router.get("/userpage/new", indexCtrl.new);
+router.post("/userpage", indexCtrl.create);
+router.get("/:id", indexCtrl.show);
 
 // SIGNUP ROUTES
 router.get("/auth/signup", (req, res) => {
@@ -56,6 +63,10 @@ router.post("/auth/signup", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     // hash the password
     req.body.password = await bcrypt.hash(req.body.password, salt);
+
+    // Default posts to an empty array
+    req.body.posts = [];
+
     // Create the User
     await User.create(req.body);
     // Redirect to login page
@@ -80,8 +91,8 @@ router.post("/auth/login", async (req, res) => {
       if (result) {
         // create user session property
         req.session.userId = user._id;
-        //redirect to /posts
-        res.redirect("/posts");
+        //redirect to /userpage
+        res.redirect("/userpage");
       } else {
         // send error is password doesn't match
         res.json({ message: "password doesn't match" });
@@ -104,24 +115,24 @@ router.get("/auth/logout", (req, res) => {
 });
 
 // Posts Index Route render view (we will include new form on index page) (protected by auth middleware)
-router.get("/posts", isAuthorized, async (req, res) => {
+router.get("/userpage", isAuthorized, async (req, res) => {
   // get updated user
   const user = await User.findOne({ username: req.user.username });
   // render template passing it list of posts
-  res.render("posts", {
+  res.render("userpage", {
     posts: user.posts,
   });
 });
 
 // Posts create route when form submitted
-router.post("/posts", isAuthorized, async (req, res) => {
+router.post("/userpage", isAuthorized, async (req, res) => {
   // fetch up to date user
   const user = await User.findOne({ username: req.user.username });
   // push new post and save
   user.posts.push(req.body);
   await user.save();
   // redirect back to posts index
-  res.redirect("/posts");
+  res.redirect("/userpage");
 });
 
 ///////////////////////////////

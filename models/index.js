@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 // Import Schema and Model
 const { Schema, model } = require("../db/connection.js");
 
@@ -18,8 +19,13 @@ const UserSchema = new Schema(
   {
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    // The goals property defined as an array of objects that match the Goal schema
-    posts: { type: [PostSchema], default: [] },
+    // The posts property defined as an array of objects that match the Post schema
+    posts: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
   { timestamps: true }
 );

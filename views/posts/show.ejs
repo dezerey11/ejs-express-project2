@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("../partials/head") %>
+
+  <body>
+    <h1><%= post.title %></h1>
+    <br />
+    <img src="<%= post.image %>" />
+    <br />
+    <%= post.body %>
+    <br />
+    <%= post.topic %>
+    <br />
+  </body>
+
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("../partials/footer") %>
+</html>
