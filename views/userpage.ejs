@@ -15,7 +15,7 @@
       <a href="/auth/logout"><button class="button">Logout</button></a>
       <% for (post of posts) { %>
       <h2 class="subtitle is-5"><%= post.title %></h2>
-      <img src="<%= post.image %>" />
+      <a href="/post/<%= post._id %>"><img src="<%= post.image %>" /> </a>
       <% } %>
       <br />
     </main>

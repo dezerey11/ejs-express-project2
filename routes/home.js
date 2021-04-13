@@ -50,7 +50,7 @@ router.get("/", (req, res) => {
 router.get("/userpage", indexCtrl.index);
 router.get("/userpage/new", indexCtrl.new);
 router.post("/userpage", indexCtrl.create);
-router.get("/:id", indexCtrl.show);
+router.get("/post/:id", indexCtrl.show);
 
 // SIGNUP ROUTES
 router.get("/auth/signup", (req, res) => {
