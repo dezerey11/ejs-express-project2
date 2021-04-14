@@ -3,9 +3,11 @@ const { Post, User } = require("../models/index");
 
 // index page - all posts
 const index = async (req, res) => {
-  const posts = await Post.find({});
+  const user = await User.findOne({ username: req.user.username });
+  const { posts, username } = await user.populate("posts").execPopulate();
   res.render("userpage", {
-    posts, // posts: posts
+    username, //username: username
+    posts,
   });
 };
 

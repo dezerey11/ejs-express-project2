@@ -47,9 +47,9 @@ router.get("/", (req, res) => {
   res.render("welcome");
 });
 
-router.get("/userpage", indexCtrl.index);
-router.get("/userpage/new", indexCtrl.new);
-router.post("/userpage", indexCtrl.create);
+router.get("/userpage", isAuthorized, indexCtrl.index);
+router.get("/userpage/new", isAuthorized, indexCtrl.new);
+router.post("/userpage", isAuthorized, indexCtrl.create);
 router.get("/post/:id", indexCtrl.show);
 
 // SIGNUP ROUTES
@@ -112,27 +112,6 @@ router.get("/auth/logout", (req, res) => {
   req.session.userId = null;
   // redirect back to the main page
   res.redirect("/");
-});
-
-// Posts Index Route render view (we will include new form on index page) (protected by auth middleware)
-router.get("/userpage", isAuthorized, async (req, res) => {
-  // get updated user
-  const user = await User.findOne({ username: req.user.username });
-  // render template passing it list of posts
-  res.render("userpage", {
-    posts: user.posts,
-  });
-});
-
-// Posts create route when form submitted
-router.post("/userpage", isAuthorized, async (req, res) => {
-  // fetch up to date user
-  const user = await User.findOne({ username: req.user.username });
-  // push new post and save
-  user.posts.push(req.body);
-  await user.save();
-  // redirect back to posts index
-  res.redirect("/userpage");
 });
 
 ///////////////////////////////
