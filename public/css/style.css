@@ -2,8 +2,8 @@ body {
   text-align: center;
 }
 
-.navbar {
-  text-align: right;
-  margin: 10px;
-  padding: 10px;
+.post-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
 }

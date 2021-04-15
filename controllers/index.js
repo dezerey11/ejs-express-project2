@@ -19,6 +19,13 @@ const newPost = async (req, res) => {
   });
 };
 
+// update page - updates posts and redirects to index page
+const update = async (req, res) => {
+  const id = req.params.id;
+  await Post.findByIdAndUpdate(id, req.body, { new: true });
+  res.redirect(`/post/${id}`);
+};
+
 // create - creates a post and redirects to the user page
 const create = async (req, res) => {
   //add the user's name into the post
@@ -39,6 +46,17 @@ const create = async (req, res) => {
   res.redirect("/userpage");
 };
 
+// edit page - page  to edit a post
+const edit = async (req, res) => {
+  const id = req.params.id;
+  const post = await Post.findById(id);
+  const user = await User.findOne({ username: req.user.username });
+  res.render("posts/edit", {
+    post,
+    username: user.username,
+  });
+};
+
 // show page - to show a post and it's information
 const show = async (req, res) => {
   const id = req.params.id;
@@ -55,4 +73,6 @@ module.exports = {
   new: newPost,
   create,
   show,
+  update,
+  edit,
 };

@@ -50,6 +50,8 @@ router.get("/", (req, res) => {
 router.get("/userpage", isAuthorized, indexCtrl.index);
 router.get("/userpage/new", isAuthorized, indexCtrl.new);
 router.post("/userpage", isAuthorized, indexCtrl.create);
+router.get("/userpage/:id/edit", isAuthorized, indexCtrl.edit);
+router.put("/userpage/:id", isAuthorized, indexCtrl.update);
 router.get("/post/:id", indexCtrl.show);
 
 // SIGNUP ROUTES
