@@ -4,13 +4,19 @@
   <%- include("../partials/head") %>
 
   <body>
+    <header>
+      <div class="navbar">
+        <a href="/"> Back Home</a>
+      </div>
+    </header>
+
     <section class="hero">
       <div class="hero-body">
-        <p class="title">Welcome!</p>
+        <p class="title is-1">Welcome!</p>
       </div>
     </section>
     <main>
-      <h1><strong>User Sign Up</strong></h1>
+      <h1 class="subtitle is-4"><strong>User Sign Up</strong></h1>
       <form action="/auth/signup" method="post">
         Username:
         <input type="text" placeholder="username" name="username" />

@@ -1,3 +1,9 @@
 body {
   text-align: center;
 }
+
+.navbar {
+  text-align: right;
+  margin: 10px;
+  padding: 10px;
+}

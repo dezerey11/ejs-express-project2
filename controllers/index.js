@@ -13,7 +13,10 @@ const index = async (req, res) => {
 
 // new page - to create a new post form
 const newPost = async (req, res) => {
-  res.render("posts/new");
+  const user = await User.findOne({ username: req.user.username });
+  res.render("posts/new", {
+    username: user.username,
+  });
 };
 
 // create - creates a post and redirects to the user page
@@ -40,8 +43,10 @@ const create = async (req, res) => {
 const show = async (req, res) => {
   const id = req.params.id;
   const post = await Post.findById(id);
+  const user = await User.findOne({ username: req.user.username });
   res.render("posts/show", {
     post,
+    username: user.username,
   });
 };
 

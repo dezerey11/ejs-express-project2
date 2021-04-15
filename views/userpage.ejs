@@ -5,14 +5,20 @@
 
   <body>
     <!-- THE HEADER TAG PARTIAL -->
-    <%- include("partials/header") %>
+    <header>
+      <div class="navbar">
+        <a href="#">Topic Page</a>
+        /
+        <a href="/userpage/new"> Create Post</a>
+        /
+        <a href="/auth/logout">Logout</a>
+      </div>
+    </header>
+
     <main>
       <!-- *********DISPLAY OUR POSTS********* -->
-      <h1>Hello <%= username %> !</h1>
-      <h2 class="subtitle is-2">Posts:</h2>
-      <a href="/userpage/new"><button class="go-back">Create Post</button></a>
+      <h1 class="title is-1"><%= username %>'s Posts:</h1>
       <br />
-      <a href="/auth/logout"><button class="button">Logout</button></a>
 
       <% for (const post of posts) { %>
       <h2 class="subtitle is-5"><%= post.title %></h2>

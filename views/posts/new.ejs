@@ -4,23 +4,32 @@
   <%- include("../partials/head") %>
 
   <body>
-    <h1>New Post Form</h1>
+    <header>
+      <div class="navbar">
+        <a href="/auth/logout">Logout</a>
+        /
+        <a href="/userpage"> Back to <%= username %>'s Page</a>
+      </div>
+    </header>
+    <main>
+      <h1 class="title is-1">New Post Form</h1>
 
-    <form id="form" action="/userpage" method="post">
-      Title:
-      <input type="text" placeholder="title" name="title" />
-      <br />
-      Image
-      <input type="text" placeholder="url" name="image" />
-      <br />
-      Description
-      <input type="text" placeholder="description" name="body" />
-      <br />
-      Topic
-      <input type="text" placeholder="topic" name="topic" />
-      <br />
-      <input type="submit" placeholder="create product" />
-    </form>
+      <form id="form" action="/userpage" method="post">
+        Title:
+        <input type="text" placeholder="title" name="title" />
+        <br />
+        Image
+        <input type="text" placeholder="url" name="image" />
+        <br />
+        Description
+        <input type="text" placeholder="description" name="body" />
+        <br />
+        Topic
+        <input type="text" placeholder="topic" name="topic" />
+        <br />
+        <input type="submit" placeholder="create product" />
+      </form>
+    </main>
   </body>
 
   <!-- THE HEAD TAG PARTIAL -->

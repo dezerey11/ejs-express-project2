@@ -4,16 +4,27 @@
   <%- include("../partials/head") %>
 
   <body>
-    <h1><%= post.title %></h1>
-    <br />
-    <img src="<%= post.image %>" />
-    <br />
-    <strong>Description:</strong> <%= post.body %>
-    <br />
-    <strong>Topic:</strong> <%= post.topic %>
-    <br />
-    <strong>Username:</strong> <%= post.user %>
-    <br />
+    <header>
+      <div class="navbar">
+        <a href="/userpage"> Back to <%= username %>'s Page</a>
+        /
+        <a href="#">Topic Page</a>
+        /
+        <a href="/auth/logout">Logout</a>
+      </div>
+    </header>
+    <main>
+      <img src="<%= post.image %>" />
+      <br />
+      <strong>Title:</strong> <%= post.title %>
+      <br />
+      <strong>Description:</strong> <%= post.body %>
+      <br />
+      <strong>Topic:</strong> <%= post.topic %>
+      <br />
+      <strong>Username:</strong> <%= post.user %>
+      <br />
+    </main>
   </body>
 
   <!-- THE HEAD TAG PARTIAL -->
