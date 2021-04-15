@@ -54,6 +54,14 @@
         <br />
         <input type="submit" placeholder="create post" />
       </form>
+
+      <form
+        action="/userpage/<%= post._id %>?_method=DELETE"
+        class="delete-form"
+        method="POST"
+      >
+        <button type="submit">Delete Post</button>
+      </form>
     </main>
   </body>
 

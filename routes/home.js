@@ -52,6 +52,7 @@ router.get("/userpage/new", isAuthorized, indexCtrl.new);
 router.post("/userpage", isAuthorized, indexCtrl.create);
 router.get("/userpage/:id/edit", isAuthorized, indexCtrl.edit);
 router.put("/userpage/:id", isAuthorized, indexCtrl.update);
+router.delete("/userpage/:id", isAuthorized, indexCtrl.destroy);
 router.get("/post/:id", indexCtrl.show);
 
 // SIGNUP ROUTES

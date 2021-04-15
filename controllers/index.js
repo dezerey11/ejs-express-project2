@@ -1,3 +1,5 @@
+// import mongoose
+const mongoose = require("mongoose");
 //import post model
 const { Post, User } = require("../models/index");
 
@@ -19,10 +21,24 @@ const newPost = async (req, res) => {
   });
 };
 
+// destroy post - destroys a post
+const destroy = async (req, res) => {
+  const id = req.params.id;
+  await Post.findByIdAndDelete(id);
+
+  await User.updateOne(
+    { username: req.user.username },
+    { $pullAll: { posts: [id] } }
+  );
+
+  res.redirect("/userpage");
+};
+
 // update page - updates posts and redirects to index page
 const update = async (req, res) => {
   const id = req.params.id;
-  await Post.findByIdAndUpdate(id, req.body, { new: true });
+  await Post.findByIdAndUpdate(id, req.body);
+
   res.redirect(`/post/${id}`);
 };
 
@@ -75,4 +91,5 @@ module.exports = {
   show,
   update,
   edit,
+  destroy,
 };
