@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/head") %>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <a href="/userpage"><%= username %>'s Page</a>
+        /
+        <a href="/auth/logout">Logout</a>
+      </div>
+    </header>
+
+    <main>
+      <h1 class="title is-1">Choose a Topic</h1>
+      <br />
+
+      <% for (const topic of topics) { %>
+      <div class="card" style="display: inline-block">
+        <div class="card-content">
+          <a href="/<%= topic %>/"> <%= topic %> </a>
+        </div>
+      </div>
+      <% } %>
+    </main>
+  </body>
+
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/footer") %>
+</html>

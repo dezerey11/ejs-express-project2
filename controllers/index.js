@@ -84,6 +84,19 @@ const show = async (req, res) => {
   });
 };
 
+//topics
+const topics = [
+  "Home",
+  "Cars",
+  "Fitness",
+  "Food",
+  "Crafting",
+  "Sports",
+  "Makeup",
+  "Art",
+  "Coding",
+];
+
 module.exports = {
   index,
   new: newPost,
@@ -92,4 +105,5 @@ module.exports = {
   update,
   edit,
   destroy,
+  topics,
 };

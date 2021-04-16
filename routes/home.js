@@ -5,9 +5,10 @@ const express = require("express");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const indexCtrl = require("../controllers/index");
-// Use desctructuring to get just User
+// Use desctructuring to get user
 const { User } = require("../models/index");
 
+const { topics } = require("../controllers/index");
 ///////////////////////////////
 // Custom Middleware Functions
 ////////////////////////////////
@@ -45,6 +46,14 @@ router.use(addUserToRequest);
 ////////////////////////////////
 router.get("/", (req, res) => {
   res.render("welcome");
+});
+
+router.get("/topics", async (req, res) => {
+  const user = await User.findOne({ username: req.user.username });
+  res.render("topics", {
+    topics,
+    username: user.username,
+  });
 });
 
 router.get("/userpage", isAuthorized, indexCtrl.index);
