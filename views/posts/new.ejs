@@ -26,7 +26,12 @@
         <input type="text" placeholder="description" name="body" />
         <br />
         Topic
-        <input type="text" placeholder="topic" name="topic" />
+        <select type="text" placeholder="topic" name="topic">
+          <% for (const topic of topics) { %>
+          <option value="<%= topic %>"><%= topic %></option>
+          <% } %>
+        </select>
+
         <br />
         <input type="submit" placeholder="create post" />
       </form>

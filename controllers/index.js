@@ -16,8 +16,21 @@ const index = async (req, res) => {
 // new page - to create a new post form
 const newPost = async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
+  const topics = [
+    "",
+    "Home",
+    "Cars",
+    "Fitness",
+    "Food",
+    "Crafting",
+    "Sports",
+    "Makeup",
+    "Art",
+    "Coding",
+  ];
   res.render("posts/new", {
     username: user.username,
+    topics,
   });
 };
 
