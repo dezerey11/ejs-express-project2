@@ -115,8 +115,8 @@ router.post("/auth/login", async (req, res) => {
       if (result) {
         // create user session property
         req.session.userId = user._id;
-        //redirect to /userpage
-        res.redirect("/userpage");
+        //redirect to /topics
+        res.redirect("/topics");
       } else {
         // send error is password doesn't match
         res.json({ message: "password doesn't match" });

@@ -18,7 +18,7 @@ const newPost = async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
   const topics = [
     "",
-    "Home",
+    " DIY Home",
     "Cars",
     "Fitness",
     "Food",
@@ -80,9 +80,22 @@ const edit = async (req, res) => {
   const id = req.params.id;
   const post = await Post.findById(id);
   const user = await User.findOne({ username: req.user.username });
+  const topics = [
+    "",
+    " DIY Home",
+    "Cars",
+    "Fitness",
+    "Food",
+    "Crafting",
+    "Sports",
+    "Makeup",
+    "Art",
+    "Coding",
+  ];
   res.render("posts/edit", {
     post,
     username: user.username,
+    topics,
   });
 };
 
@@ -99,7 +112,7 @@ const show = async (req, res) => {
 
 //topics
 const topics = [
-  "Home",
+  "DIY Home",
   "Cars",
   "Fitness",
   "Food",

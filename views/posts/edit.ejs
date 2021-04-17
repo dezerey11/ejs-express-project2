@@ -6,9 +6,9 @@
   <body>
     <header>
       <div class="navbar">
-        <a href="/auth/logout">Logout</a>
-        /
         <a href="/userpage"> Back to <%= username %>'s Page</a>
+        /
+        <a href="/auth/logout">Logout</a>
       </div>
     </header>
 
@@ -45,12 +45,11 @@
         />
         <br />
         Topic
-        <input
-          type="text"
-          placeholder="topic"
-          name="topic"
-          value="<%= post.topic %>"
-        />
+        <select type="text" placeholder="topic" name="topic">
+          <% for (const topic of topics) { %>
+          <option value="<%= topic %>"><%= topic %></option>
+          <% } %>
+        </select>
         <br />
         <input type="submit" placeholder="create post" />
       </form>
