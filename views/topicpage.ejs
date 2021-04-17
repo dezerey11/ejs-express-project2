@@ -5,17 +5,22 @@
 
   <body>
     <header>
-      <div class="navbar">
-        <a href="/userpage"><%= username %>'s Page</a>
-        /
-        <a href="/topics"> Topics Page</a>
-        /
-        <a href="/auth/logout">Logout</a>
-      </div>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/topics">Inspiration App</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/userpage"><%= username %>'s Page</a></li>
+            <li><a href="/topics"> Topics Page</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <h1 class="title is-1">Topic</h1>
+      <h1 class="title is-1 has-text-white">Topic</h1>
       <br />
       <% for (const post of posts) { %>
       <div class="card" style="display: inline-block">

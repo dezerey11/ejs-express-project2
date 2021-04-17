@@ -1,5 +1,8 @@
 body {
   text-align: center;
+  background-image: url("https://tattoocovenant.com/wp-content/uploads/2019/08/36801346-free-background-images.jpg");
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
 }
 
 .post-image {
@@ -10,4 +13,12 @@ body {
 
 .card {
   width: 250px;
+}
+
+.has-text-white {
+  font-weight: bold;
+}
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -6,18 +6,23 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <header>
-      <div class="navbar">
-        <a href="/topics">Topics Page</a>
-        /
-        <a href="/userpage/new"> Create Post</a>
-        /
-        <a href="/auth/logout">Logout</a>
-      </div>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/topics">Inspiration App</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/topics">Topics Page</a></li>
+            <li><a href="/userpage/new"> Create Post</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
       <!-- *********DISPLAY OUR POSTS********* -->
-      <h1 class="title is-1"><%= username %>'s Posts:</h1>
+      <h1 class="title is-1 has-text-white"><%= username %>'s Posts:</h1>
       <br />
 
       <% for (const post of posts) { %>
@@ -27,7 +32,8 @@
             ><img class="post-image" src="<%= post.image %>"
           /></a>
           <div class="content">
-            <h2 class="subtitle is-5"><%= post.title %></h2>
+            <%= post.title %>
+            <br />
             <a href="/userpage/<%= post._id %>/edit">Edit Post</a>
           </div>
         </div>

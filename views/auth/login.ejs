@@ -5,24 +5,32 @@
 
   <body>
     <header>
-      <div class="navbar">
-        <a href="/"> Back Home</a>
-      </div>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/topics">Inspiration App</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/"> Back Home</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <section class="hero">
       <div class="hero-body">
-        <p class="title is-1">Welcome Back!</p>
+        <p class="title is-1 has-text-white">Welcome Back!</p>
       </div>
     </section>
 
     <main>
-      <h1 class="subtitle is-4"><strong>User Login</strong></h1>
+      <h1 class="subtitle is-2 has-text-white">User Login</h1>
       <form action="/auth/login" method="post">
-        Username:
+        <p class="has-text-white">Username:</p>
         <input type="text" placeholder="username" name="username" />
         <br />
-        Password:
+        <p class="has-text-white">Password:</p>
+
         <input type="password" placeholder="password" name="password" />
         <br />
         <input type="submit" value="Login" />
