@@ -19,14 +19,14 @@
     </header>
 
     <main>
-      <h1 class="title is-1 has-text-white">Edit Post</h1>
+      <h1 class="title is-1 has-text-white">EDIT POST</h1>
 
       <form
         id="form"
         action="/userpage/<%= post._id %>?_method=PUT"
         method="post"
       >
-        <p class="has-text-white">Title :</p>
+        <p class="title is-2 has-text-white">Title :</p>
         <input
           type="text"
           placeholder="title"
@@ -34,7 +34,7 @@
           value="<%= post.title %>"
         />
         <br />
-        <p class="has-text-white">Image :</p>
+        <p class="title is-2 has-text-white">Image :</p>
         <input
           type="text"
           placeholder="url"
@@ -42,7 +42,7 @@
           value="<%= post.image %>"
         />
         <br />
-        <p class="has-text-white">Description :</p>
+        <p class="title is-2 has-text-white">Description :</p>
         <input
           type="text"
           placeholder="description"
@@ -50,11 +50,13 @@
           value="<%= post.body %>"
         />
         <br />
-        <p class="has-text-white">Topic :</p>
-        <select type="text" placeholder="topic" name="topic">
-          <% for (const topic of topics) { %>
+        <p class="title is-2 has-text-white">Topic :</p>
+        <select type="text" name="topic">
+          <% for (const topic of topics) { %> <% if (post.topic === topic) { %>
+          <option value="<%= topic %>" selected><%= topic %></option>
+          <% } else { %>
           <option value="<%= topic %>"><%= topic %></option>
-          <% } %>
+          <% } %> <% } %>
         </select>
         <br />
         <input type="submit" placeholder="create post" />

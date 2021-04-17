@@ -3,6 +3,19 @@ const mongoose = require("mongoose");
 //import post model
 const { Post, User } = require("../models/index");
 
+//topics
+const topics = [
+  "DIY Home",
+  "Cars",
+  "Fitness",
+  "Food",
+  "Crafting",
+  "Sports",
+  "Makeup",
+  "Art",
+  "Coding",
+];
+
 // index page - all posts from user
 const index = async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
@@ -16,18 +29,6 @@ const index = async (req, res) => {
 // new page - to create a new post form
 const newPost = async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
-  const topics = [
-    "",
-    " DIY Home",
-    "Cars",
-    "Fitness",
-    "Food",
-    "Crafting",
-    "Sports",
-    "Makeup",
-    "Art",
-    "Coding",
-  ];
   res.render("posts/new", {
     username: user.username,
     topics,
@@ -80,18 +81,7 @@ const edit = async (req, res) => {
   const id = req.params.id;
   const post = await Post.findById(id);
   const user = await User.findOne({ username: req.user.username });
-  const topics = [
-    "",
-    " DIY Home",
-    "Cars",
-    "Fitness",
-    "Food",
-    "Crafting",
-    "Sports",
-    "Makeup",
-    "Art",
-    "Coding",
-  ];
+
   res.render("posts/edit", {
     post,
     username: user.username,
@@ -109,19 +99,6 @@ const show = async (req, res) => {
     username: user.username,
   });
 };
-
-//topics
-const topics = [
-  "DIY Home",
-  "Cars",
-  "Fitness",
-  "Food",
-  "Crafting",
-  "Sports",
-  "Makeup",
-  "Art",
-  "Coding",
-];
 
 module.exports = {
   index,

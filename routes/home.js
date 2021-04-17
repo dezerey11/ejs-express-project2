@@ -63,6 +63,7 @@ router.get("/topics/:topic", async (req, res) => {
   const posts = await Post.find({ topic: topic });
   const user = await User.findOne({ username: req.user.username });
   res.render("topicpage", {
+    topic,
     posts,
     username: user.username,
   });

@@ -19,20 +19,20 @@
     </header>
 
     <main>
-      <h1 class="title is-1 has-text-white">New Post Form</h1>
+      <h1 class="title is-1 has-text-white">NEW POST FORM</h1>
 
       <form id="form" action="/userpage" method="post">
-        <p class="has-text-white">Title :</p>
+        <p class="title is-2 has-text-white">Title :</p>
         <input type="text" placeholder="title" name="title" />
         <br />
-        <p class="has-text-white">Image :</p>
+        <p class="title is-2 has-text-white">Image :</p>
         <input type="text" placeholder="url" name="image" />
         <br />
-        <p class="has-text-white">Description :</p>
+        <p class="title is-2 has-text-white">Description :</p>
 
         <input type="text" placeholder="description" name="body" />
         <br />
-        <p class="has-text-white">Topic :</p>
+        <p class="title is-2 has-text-white">Topic :</p>
 
         <select type="text" placeholder="topic" name="topic">
           <% for (const topic of topics) { %>
