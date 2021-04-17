@@ -39,3 +39,11 @@ footer {
 .title {
   text-transform: uppercase;
 }
+
+.submit-button {
+  background-color: #aed6f1;
+}
+
+.delete-button {
+  background-color: #f5b7b1;
+}
