@@ -58,7 +58,7 @@ router.get("/topics", async (req, res) => {
 });
 
 // route to get posts in a topic
-router.get("/:topic", async (req, res) => {
+router.get("/topics/:topic", async (req, res) => {
   const topic = req.params.topic;
   const posts = await Post.find({ topic: topic });
   const user = await User.findOne({ username: req.user.username });
