@@ -6,7 +6,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const indexCtrl = require("../controllers/index");
 // Use desctructuring to get user
-const { User } = require("../models/index");
+const { User, Post } = require("../models/index");
 
 const { topics } = require("../controllers/index");
 ///////////////////////////////
@@ -48,10 +48,22 @@ router.get("/", (req, res) => {
   res.render("welcome");
 });
 
+// route to get topics
 router.get("/topics", async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
   res.render("topics", {
     topics,
+    username: user.username,
+  });
+});
+
+// route to get posts in a topic
+router.get("/:topic", async (req, res) => {
+  const topic = req.params.topic;
+  const posts = await Post.find({ topic: topic });
+  const user = await User.findOne({ username: req.user.username });
+  res.render("topicpage", {
+    posts,
     username: user.username,
   });
 });

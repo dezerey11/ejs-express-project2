@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //import post model
 const { Post, User } = require("../models/index");
 
-// index page - all posts
+// index page - all posts from user
 const index = async (req, res) => {
   const user = await User.findOne({ username: req.user.username });
   const { posts, username } = await user.populate("posts").execPopulate();

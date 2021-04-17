@@ -14,7 +14,22 @@
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <h1 class="title is-1">Topic</h1>
+      <br />
+      <% for (const post of posts) { %>
+      <div class="card" style="display: inline-block">
+        <div class="card-content">
+          <a href="/post/<%= post._id %>"
+            ><img class="post-image" src="<%= post.image %>"
+          /></a>
+          <div class="content">
+            <h2 class="subtitle is-5"><%= post.title %></h2>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </main>
   </body>
 
   <!-- THE HEAD TAG PARTIAL -->
