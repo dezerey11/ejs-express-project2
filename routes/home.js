@@ -119,12 +119,12 @@ router.post("/auth/login", async (req, res) => {
         //redirect to /topics
         res.redirect("/topics");
       } else {
-        // send error is password doesn't match
-        res.json({ message: "password doesn't match" });
+        // send error if password doesn't match
+        res.render("error/password");
       }
     } else {
       // send error if user doesn't exist
-      res.json({ message: "user doesn't exist" });
+      res.render("error/user");
     }
   } catch (error) {
     res.json(error);
