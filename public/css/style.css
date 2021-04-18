@@ -40,10 +40,20 @@ footer {
   text-transform: uppercase;
 }
 
+#welcome-page {
+  text-transform: none;
+  font-size: 60px;
+}
+
 .submit-button {
   background-color: #aed6f1;
 }
 
 .delete-button {
   background-color: #f5b7b1;
+}
+
+.button-welcome-page {
+  font-size: 25px;
+  border-radius: 15px;
 }
