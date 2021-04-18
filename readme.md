@@ -12,6 +12,15 @@ In this application, the user will sign up / log in and get redirected to a page
 
 HTML, CSS, JavaScipt, Express, Mongoose, MongoDB, Bulma, Bootstrap
 
+## Screenshots
+
+![Welcome Page](docs/welcome-page.png)
+![Login Page](docs/user-login-page.png)
+![Topics Page](docs/topics-page.png)
+![Topic Page](docs/topic-page.png)
+![User Page](docs/user-page.png)
+![Create Post Page](docs/create-post.png)
+
 ## Getting Started
 
 - To open app click => [Inspiration App](https://seir-project2-inspirationapp.herokuapp.com/)
