@@ -1,17 +1,15 @@
-///////////////////////////////
-// Import Router
-////////////////////////////////
+////////////  IMPORT ROUTER ////////////
+
 const express = require("express");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const indexCtrl = require("../controllers/index");
-// Use desctructuring to get user
+// Use desctructuring to get user and post
 const { User, Post } = require("../models/index");
-
+// Use destructuring to get topics
 const { topics } = require("../controllers/index");
-///////////////////////////////
-// Custom Middleware Functions
-////////////////////////////////
+
+////////////  CUSTOM MIDDLEWARE FUNCTIONS ////////////
 
 // Middleware to check if userId is in sessions and create req.user
 const addUserToRequest = async (req, res, next) => {
@@ -22,7 +20,6 @@ const addUserToRequest = async (req, res, next) => {
     next();
   }
 };
-
 // Auth Middleware Function to check if user authorized for route
 const isAuthorized = (req, res, next) => {
   // check if user session property exists, if not redirect back to login page
@@ -35,15 +32,12 @@ const isAuthorized = (req, res, next) => {
   }
 };
 
-///////////////////////////////
-// Router Specific Middleware
-////////////////////////////////
+////////////  ROUTER SPECIFIC MIDDLEWARE  ////////////
 
 router.use(addUserToRequest);
 
-///////////////////////////////
-// Router Routes
-////////////////////////////////
+////////////  ROUTER ROUTES ///////////
+
 router.get("/", (req, res) => {
   res.render("welcome");
 });
@@ -77,7 +71,8 @@ router.put("/userpage/:id", isAuthorized, indexCtrl.update);
 router.delete("/userpage/:id", isAuthorized, indexCtrl.destroy);
 router.get("/post/:id", indexCtrl.show);
 
-// SIGNUP ROUTES
+////////////  SIGNUP ROUTES ////////////
+
 router.get("/auth/signup", (req, res) => {
   res.render("auth/signup");
 });
@@ -88,11 +83,9 @@ router.post("/auth/signup", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     // hash the password
     req.body.password = await bcrypt.hash(req.body.password, salt);
-
-    // Default posts to an empty array
+    // default posts to an empty array
     req.body.posts = [];
-
-    // Create the User
+    // create the User
     await User.create(req.body);
     // Redirect to login page
     res.redirect("/auth/login");
@@ -101,14 +94,15 @@ router.post("/auth/signup", async (req, res) => {
   }
 });
 
-// Login Route
+//////////// LOGIN ROUTES ////////////
+
 router.get("/auth/login", (req, res) => {
   res.render("auth/login");
 });
 
 router.post("/auth/login", async (req, res) => {
   try {
-    //check if the user exists (make sure to use findOne not find)
+    // check if the user exists
     const user = await User.findOne({ username: req.body.username });
     if (user) {
       // check if password matches
@@ -116,7 +110,7 @@ router.post("/auth/login", async (req, res) => {
       if (result) {
         // create user session property
         req.session.userId = user._id;
-        //redirect to /topics
+        // redirect to /topics
         res.redirect("/topics");
       } else {
         // send error if password doesn't match
@@ -131,7 +125,8 @@ router.post("/auth/login", async (req, res) => {
   }
 });
 
-// Logout Route
+//////////// LOGOUT ROUTE ////////////
+
 router.get("/auth/logout", (req, res) => {
   // remove the userId property from the session
   req.session.userId = null;
@@ -139,7 +134,5 @@ router.get("/auth/logout", (req, res) => {
   res.redirect("/");
 });
 
-///////////////////////////////
-// Export Router
-////////////////////////////////
+//////////// EXPORT ROUTER ////////////
 module.exports = router;

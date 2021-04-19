@@ -71,9 +71,8 @@ Post Model:
 
 ## Next Steps
 
-- As a user be able to add more topics but not be allowed to add double of the same topics
+- As a user be able to add more topics but not be allowed to add multiples of the same topic
 - As a user be able to add comments
 - Have a reporting system
-- Allow password changes
 - Add Inspiration points(likes) —— can filter from recent or highest points to lowest on the index page. At the end of the year have a hall of fame for posts with the highest inspiration points that year.
 - As a user, have the ability to contact the user who made a post (on their page they will receive a private message)

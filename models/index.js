@@ -19,7 +19,6 @@ const UserSchema = new Schema(
   {
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    // The posts property defined as an array of objects that match the Post schema
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -36,7 +35,7 @@ const User = model("User", UserSchema);
 // The Post Model
 const Post = model("Post", PostSchema);
 
-// Export the User Model
+// Export the Models
 module.exports = {
   User,
   Post,
