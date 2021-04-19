@@ -1,6 +1,7 @@
 body {
   text-align: center;
   background-image: url("https://tattoocovenant.com/wp-content/uploads/2019/08/36801346-free-background-images.jpg");
+  background-size: cover;
   font-family: "Pacifico", cursive;
   font-size: 30px;
 }
@@ -12,6 +13,7 @@ input {
 
 footer {
   padding: 2rem 1rem 0.5rem !important;
+  margin-top: 200px;
 }
 
 .post-image {
@@ -30,7 +32,7 @@ footer {
 }
 
 .footer {
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .edit-link {
@@ -56,4 +58,5 @@ footer {
 .button-welcome-page {
   font-size: 25px;
   border-radius: 15px;
+  margin-top: 40px;
 }
