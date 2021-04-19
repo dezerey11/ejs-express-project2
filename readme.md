@@ -14,12 +14,14 @@ HTML, CSS, JavaScipt, Express, Mongoose, MongoDB, Bulma, Bootstrap
 
 ## Screenshots
 
-![Welcome Page](docs/welcome-page.png)
-![Login Page](docs/user-login-page.png)
-![Topics Page](docs/topics-page.png)
-![Topic Page](docs/topic-page.png)
-![User Page](docs/user-page.png)
+![Welcome Page](docs/Welcome.png)
+![Login Page](docs/Login.png)
+![Topics Page](docs/all-topics.png)
+![Topic Page](docs/one-topic.png)
+![Show Page](docs/show-page.png)
+![User Page](docs/userpage.png)
 ![Create Post Page](docs/create-post.png)
+![Edit Post Page](docs/edit-post.png)
 
 ## Getting Started
 
