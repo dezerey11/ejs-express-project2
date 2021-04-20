@@ -14,8 +14,8 @@ HTML, CSS, JavaScipt, Express, Mongoose, MongoDB, Bulma, Bootstrap
 
 ## Screenshots
 
-![Welcome Page](docs/welcome.png)
-![Login Page](docs/login.png)
+![Welcome Page](docs/welcome-page.png)
+![Login Page](docs/login-page.png)
 ![Topics Page](docs/topics.png)
 ![Topic Page](docs/one-topic.png)
 ![Show Page](docs/show-page.png)
