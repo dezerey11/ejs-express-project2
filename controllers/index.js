@@ -60,7 +60,6 @@ const create = async (req, res) => {
   const post = await Post.create(req.body);
   // fetch up to date user
   const user = await User.findOne({ username: req.user.username });
-  const populatedUser = await user.populate("posts").execPopulate();
   // push the new post into posts and save
   user.posts.push(post._id);
   await user.save();
